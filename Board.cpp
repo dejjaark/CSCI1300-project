@@ -18,7 +18,7 @@
 #define RED "\033[48;2;230;10;10m"
 #define PURPLE "\033[48;2;128;0;128m"
 #define RESET "\033[0m"
-
+// Defines colors 
 using namespace std;
 
 // =========================== Constructor ===========================
