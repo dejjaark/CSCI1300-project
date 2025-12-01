@@ -35,7 +35,17 @@ Board::Board() {
     // Fill both lanes
     initializeBoard();
 }
+char Board::getTileColor(int player_index, int pos) const {
+    if (player_index >= 0 && player_index < _player_count &&
+        pos >= 0 && pos < _BOARD_SIZE) {
+        return _tiles[player_index][pos].color;
+    }
+    return ' '; // default / error
+}
 
+int Board::getBoardSize() const {
+    return _BOARD_SIZE;
+}
 // =========================== Private Member Functions ===========================
 
 void Board::initializeTiles(int player_index) {
