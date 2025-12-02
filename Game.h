@@ -3,59 +3,70 @@
 
 #include "Board.h"
 #include "Player.h"
-#include "DNAUtils.h"
 #include <string>
+using namespace std;
 
 class Game {
 private:
+    // Store info about a single random event read from random_events.txt
     struct RandomEvent {
-        std::string description;
-        int pathType;        // 0 = Fellowship, 1 = Direct Lab (from file)
-        int advisorType;     // 0 = none, 1..5 as in spec (we can ignore for now)
-        int dpDelta;         // gain or loss in Discover Points
+        string description;
+        int pathType;
+        int advisorType;
+        int dpDelta;
     };
 
+    // Store info about a single riddle from riddles.txt
     struct Riddle {
-        std::string question;
-        std::string answer;
+        string question;
+        string answer;
     };
 
-    Board _board;
-    Player _players[2];
+    Board _board;        // The game board
+    Player _players[2];  // Two players in the game
 
+    // Limits for how many things we can store
     static const int MAX_EVENTS = 60;
     static const int MAX_RIDDLES = 30;
+    static const int MAX_CHARACTERS = 10;
 
+    // Arrays to hold events / riddles / character options
     RandomEvent _events[MAX_EVENTS];
     int _eventCount;
 
     Riddle _riddles[MAX_RIDDLES];
     int _riddleCount;
 
-    // helpers
+    Player _characterOptions[MAX_CHARACTERS];
+    int _characterCount;
+
+    // ----- Helper functions used inside the Game -----
+
+    // File loaders
     void loadCharactersFromFile(const char filename[]);
     void loadRandomEvents(const char filename[]);
     void loadRiddles(const char filename[]);
 
+    // Setup choices
     void chooseCharacters();
     void choosePaths();
-    void applyPathBonuses();  // fellowship vs direct lab
+    void applyPathBonuses();
 
+    // Gameplay
     void play();
-
-    // tile handling
     void resolveTileEffect(int player_index, char color);
     void triggerRandomEvent(int player_index);
     void triggerRiddle(int player_index);
     void handleDNATask(int player_index, char color);
 
-    // scoring
+    // Scoring
     int calculateFinalScore(const Player& p) const;
     void announceWinner() const;
 
 public:
-    Game();
-    void run();
+    Game();   // constructor
+    void run(); // entry point to run the whole game
 };
 
 #endif
+
