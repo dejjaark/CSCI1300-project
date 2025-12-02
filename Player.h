@@ -50,11 +50,5 @@ public:
     void changeEfficiency(int delta);
     void changeInsight(int delta);
     void changeDiscoverPoints(int delta);
-
-    void changeExperience(int delta);
-    void changeAccuracy(int delta);
-    void changeEfficiency(int delta);
-    void changeInsight(int delta);
-    void changeDiscoverPoints(int delta);
 };
 #endif //PLAYER_H
