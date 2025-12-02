@@ -49,28 +49,3 @@ void Player::changeAccuracy(int delta) { _accuracy += delta; }
 void Player::changeEfficiency(int delta) { _efficiency += delta; }
 void Player::changeInsight(int delta) { _insight += delta; }
 void Player::changeDiscoverPoints(int delta) { _discoverPoints += delta; }
-
-void Player::changeExperience(int delta) {
-    _experience += delta;
-}
-
-void Player::changeAccuracy(int delta) {
-    _accuracy += delta;
-    if (_accuracy < 100) _accuracy = 100;
-}
-
-void Player::changeEfficiency(int delta) {
-    _efficiency += delta;
-    if (_efficiency < 100) _efficiency = 100;
-}
-
-void Player::changeInsight(int delta) {
-    _insight += delta;
-    if (_insight < 100) _insight = 100;
-}
-
-void Player::changeDiscoverPoints(int delta) {
-    _discoverPoints += delta;
-    if (_discoverPoints < 0) _discoverPoints = 0;
-}
-
