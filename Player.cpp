@@ -44,8 +44,8 @@ void Player::setPathType(int pathType) { _pathType = pathType; }
 void Player::setFinished(bool finished) { _finished = finished; }
 
 // Stat adjust helpers
-void Player::changeExperience(int input) { _experience += input; }
-void Player::changeAccuracy(int input) { _accuracy += input; }
-void Player::changeEfficiency(int input) { _efficiency += input; }
-void Player::changeInsight(int input) { _insight += input; }
-void Player::changeDiscoverPoints(int input) { _discoverPoints += input; }
+void Player::changeExperience(int delta) { _experience += delta; }
+void Player::changeAccuracy(int delta) { _accuracy += delta; }
+void Player::changeEfficiency(int delta) { _efficiency += delta; }
+void Player::changeInsight(int delta) { _insight += delta; }
+void Player::changeDiscoverPoints(int delta) { _discoverPoints += delta; }
