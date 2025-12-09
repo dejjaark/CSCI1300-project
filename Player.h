@@ -45,10 +45,10 @@ public:
     void setFinished(bool finished);
 
     // Helper functions to adjust stats
-    void changeExperience(int delta);
-    void changeAccuracy(int delta);
-    void changeEfficiency(int delta);
-    void changeInsight(int delta);
-    void changeDiscoverPoints(int delta);
+    void changeExperience(int input);
+    void changeAccuracy(int input);
+    void changeEfficiency(int input);
+    void changeInsight(int input);
+    void changeDiscoverPoints(int input);
 };
 #endif //PLAYER_H

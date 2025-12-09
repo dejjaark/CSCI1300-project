@@ -18,7 +18,7 @@
 #define RED "\033[48;2;230;10;10m"
 #define PURPLE "\033[48;2;128;0;128m"
 #define RESET "\033[0m"
-// Defines colors 
+
 using namespace std;
 
 // =========================== Constructor ===========================
@@ -34,18 +34,12 @@ Board::Board() {
 
     // Fill both lanes
     initializeBoard();
-}
-char Board::getTileColor(int player_index, int pos) const {
-    if (player_index >= 0 && player_index < _player_count &&
-        pos >= 0 && pos < _BOARD_SIZE) {
-        return _tiles[player_index][pos].color;
+    for(int i = 0; i<2; i++){
+
+        initializeTiles(i);
     }
-    return ' '; // default / error
 }
 
-int Board::getBoardSize() const {
-    return _BOARD_SIZE;
-}
 // =========================== Private Member Functions ===========================
 
 void Board::initializeTiles(int player_index) {
@@ -171,4 +165,12 @@ int Board::getPlayerPosition(int player_index) const {
         return _player_position[player_index];
     }
     return -1;
+}
+
+char Board::getTileColor(int player_index, int pos) const {
+    if (player_index >= 0 && player_index < _player_count &&
+        pos >= 0 && pos < _BOARD_SIZE) {
+        return _tiles[player_index][pos].color;
+    }
+    return ' ';
 }
